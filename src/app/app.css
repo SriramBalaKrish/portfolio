@@ -1,0 +1,546 @@
+:host {
+  --ink: #173454;
+  --ink-soft: #254768;
+  --surface: #f0f3f6;
+  --surface-card: #f8f9fb;
+  --line: #acc0d0;
+  --text: #1f3852;
+  --white: #ffffff;
+  --accent: #89a9c5;
+  display: block;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.page {
+  margin: 0;
+  color: var(--text);
+  font-family: 'Manrope', 'Segoe UI', sans-serif;
+  background: var(--surface);
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 0.8rem 2rem;
+  background: rgba(255, 255, 255, 0.94);
+  border-bottom: 1px solid #e1e7ee;
+  backdrop-filter: blur(6px);
+}
+
+.brand {
+  margin: 0;
+  font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  position: relative;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -0.4rem;
+  width: 100%;
+  height: 2px;
+  background: #284666;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-contact:hover,
+.nav-link.active-link {
+  color: var(--ink-soft);
+}
+
+.nav-link:hover::after,
+.nav-link.active-link::after {
+  transform: scaleX(1);
+}
+
+.nav-contact {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  color: var(--text);
+  font: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+.hero {
+  min-height: 520px;
+  padding: 10rem 1rem 0;
+  color: var(--white);
+  background: radial-gradient(circle at 20% 20%, #2a4c6f 0%, var(--ink) 52%, #122842 100%);
+}
+
+.hero-center {
+  text-align: center;
+}
+.hero-center img {
+  height: 16ch;
+  margin-bottom: 1.2rem;
+}
+.logo {
+  margin: 0;
+  font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
+  font-size: clamp(3rem, 10vw, 6rem);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  line-height: 1;
+}
+
+.logo span {
+  display: inline-block;
+  transform: translateY(-0.05em);
+}
+
+.tagline {
+  margin: 1.5rem 0 0;
+  font-size: 1.3rem;
+  letter-spacing: 0.02em;
+}
+
+.identity {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 5rem auto 0;
+  padding: 1.1rem 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.identity-text h1 {
+  margin: 0;
+  font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.02em;
+}
+
+.identity-text p {
+  margin: 0.3rem 0 0;
+  font-size: 1.05rem;
+}
+
+.avatar {
+  flex-shrink: 0;
+  display: block;
+  width: 172px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 20%;
+  border: 2px solid rgba(255, 255, 255, 0.78);
+  box-shadow: 0 10px 26px rgba(11, 25, 41, 0.35);
+  filter: contrast(1.04) saturate(1.03);
+  position: relative;
+  margin-top:-8rem
+}
+
+.about,
+.skills,
+.experience {
+  padding: clamp(3rem, 7vw, 5.5rem) clamp(1rem, 5vw, 5rem);
+}
+
+h2 {
+  margin: 0;
+  font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.about {
+  background: var(--surface);
+}
+
+.about p {
+  max-width: 980px;
+  margin: 1rem auto 0;
+  font-size: clamp(1.08rem, 2.2vw, 1.45rem);
+  line-height: 1.55;
+}
+
+.skills {
+  background: var(--ink);
+  color: var(--white);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(260px, 1fr));
+  gap: 1.2rem;
+  max-width: 1100px;
+  margin: 2.3rem auto 0;
+}
+
+.skill-card {
+  min-height: 210px;
+  padding: 1.6rem;
+  color: var(--text);
+  background: var(--surface-card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.skill-card h3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin: 0;
+  font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
+  font-size: 1.45rem;
+  text-align: center;
+}
+
+.skill-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 6px;
+  border: 1px solid #335374;
+  color: #274868;
+  background: #f0f5fa;
+}
+
+.skill-icon svg {
+  width: 1.05rem;
+  height: 1.05rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.icon-fe,
+.icon-arch,
+.icon-lead,
+.icon-tools {
+  box-shadow: 0 2px 0 rgba(39, 72, 104, 0.06);
+}
+
+.skill-divider {
+  width: 100%;
+  height: 1px;
+  margin: 1rem 0 1.2rem;
+  background: #7b96ad;
+}
+
+.skill-card ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 0;
+  margin: 1.4rem 0 0;
+  list-style: none;
+}
+
+.skill-card li {
+  min-width: 5.4rem;
+  padding: 0.45rem 0.9rem;
+  font-size: 1.04rem;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid #6f8aa4;
+  background: #f8fbfe;
+}
+
+.experience {
+  background: var(--surface);
+}
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  gap: 1.25rem;
+  max-width: 1100px;
+  margin: 2.3rem auto 0;
+}
+
+.experience-card {
+  position: relative;
+  min-height: 250px;
+  padding: 0;
+  perspective: 1000px;
+  cursor: pointer;
+  border-radius: 14px;
+  border: 0;
+  background: transparent;
+}
+
+.experience-card:focus-visible {
+  outline: 2px solid #274868;
+  outline-offset: 3px;
+}
+
+.experience-card-inner {
+  position: relative;
+  width: 100%;
+  min-height: 250px;
+  transform-style: preserve-3d;
+  transition: transform 0.65s ease;
+}
+
+.experience-card:hover .experience-card-inner,
+.experience-card:focus-visible .experience-card-inner {
+  transform: rotateY(180deg);
+}
+
+.experience-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.7rem;
+  border-radius: 14px;
+  backface-visibility: hidden;
+}
+
+.experience-front {
+  border: 1px solid #8ea6ba;
+  background: #f4f7fa;
+}
+
+.experience-back {
+  color: #f2f6fb;
+  background: #274868;
+  transform: rotateY(180deg);
+}
+
+.experience-front h3 {
+  margin: 0;
+  font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
+  font-size: 1.4rem;
+}
+
+.experience-front p,
+.experience-back p {
+  margin: 0.45rem 0 0;
+  font-size: 1.08rem;
+}
+
+.experience-back p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.footer {
+  padding: 1.45rem 1rem;
+  color: var(--white);
+  text-align: center;
+  background: var(--ink);
+}
+
+.footer p {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.contact-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: rgba(8, 23, 39, 0.7);
+}
+
+.contact-modal {
+  width: min(820px, 100%);
+  padding: clamp(1.2rem, 3vw, 2.4rem);
+  background: #e9ecf0;
+  border: 6px solid #153250;
+  border-radius: 16px;
+}
+
+.contact-field {
+  margin-top: 1.2rem;
+}
+
+.contact-field:first-of-type {
+  margin-top: 0;
+}
+
+.contact-field label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
+  font-size: clamp(1.3rem, 2.8vw, 2rem);
+  color: #284666;
+}
+
+.contact-field input {
+  width: 100%;
+  height: 52px;
+  padding: 0.3rem 0;
+  font-size: 1.05rem;
+  color: var(--text);
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid #284666;
+  outline: none;
+}
+
+.modal-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.7rem;
+}
+
+.primary-btn {
+  min-width: 210px;
+  padding: 0.8rem 1.1rem;
+  color: #eaf1f9;
+  font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
+  font-size: clamp(1rem, 2.2vw, 1.6rem);
+  font-weight: 700;
+  background: #274868;
+  border: 0;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.or-chip {
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 64px;
+  font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #284666;
+  border: 2px solid #284666;
+  border-radius: 10px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 840px) {
+  .topbar {
+    flex-direction: column;
+    padding: 0.8rem 1rem;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero {
+    min-height: 470px;
+  }
+
+  .tagline {
+    font-size: 1.1rem;
+  }
+
+  .identity {
+    flex-direction: column;
+    text-align: center;
+    margin-top: 3.4rem;
+  }
+
+  .identity-text h1 {
+    font-size: 1.5rem;
+  }
+
+  .avatar {
+    width: 146px;
+  }
+
+  .skills-grid,
+  .experience-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-card,
+  .experience-card-inner {
+    min-height: 220px;
+  }
+
+  .contact-modal {
+    border-width: 4px;
+    border-radius: 12px;
+  }
+
+  .contact-field input {
+    height: 46px;
+    font-size: 1rem;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+    margin-top: 2.1rem;
+  }
+
+  .primary-btn {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .or-chip {
+    width: 80px;
+    height: 66px;
+    font-size: 2rem;
+  }
+}
